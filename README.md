@@ -16,9 +16,15 @@ TypeCSV is available on [npm](https://www.npmjs.com/package/@typecsv/core):
 npm install @typecsv/core
 ```
 
-The core library (in this repo) has everything you need to define your own schemas & parse .csv strings.
+The core library (in this repo) has everything you need to define your own schemas & parse .csv strings. Keep reading for more info on third-party schema installation & use.
 
-If you're parsing a commonly-used .csv file, you might benefit from searching for a pre-defined schema in the [TypeCSV Schemas](https://github.com/typecsv/schemas) repo. If you find one that works for you, you can install it from npm:
+## Usage
+
+There are two steps involved in using TypeCSV - defining (or installing) a schema, and then parsing a .csv file or string with that schema.
+
+### Installing a Schema
+
+If you're parsing a commonly-used .csv file, start by searching for a pre-defined schema in the [TypeCSV Schemas](https://github.com/typecsv/schemas) repo. If you find one that works for you, you can install it from npm:
 
 For instance, this is how you'd install the schema to parse the [FDIC's Failed Bank List](https://catalog.data.gov/dataset/fdic-failed-bank-list).
 
@@ -26,13 +32,11 @@ For instance, this is how you'd install the schema to parse the [FDIC's Failed B
 npm install @typecsv/fdic-failed-bank-list
 ```
 
-## Usage
-
 ### Defining a Schema
 
 A schema is simply a zod tuple that defines the structure of a single .csv row. The values of the tuple are [Zod](https://zod.dev/) schemas that compose to define the type of each column in the row.
 
-Consider the following "csv file" from a hypothetical user export (formatted as a gfm table here).
+Consider the following "csv file" of users exported from a hypothetical SaaS (formatted as a gfm table here).
 
 | name  | age | city        | Registered |
 | ----- | --- | ----------- | ---------- |
@@ -40,12 +44,12 @@ Consider the following "csv file" from a hypothetical user export (formatted as 
 | Jane  | 25  | Los Angeles | 2022-04-28 |
 | Johan | 28  | Zurich      | 2022-06-03 |
 
-The schema for this csv might look like this:
+The zod tuple schema for this csv might look like this:
 
 ```js
 import { z } from "zod";
 
-const schema = z.tuple([
+const userExportSchema = z.tuple([
   z.string().refine((s) => s.length > 0, { message: "Name cannot be empty" }),
   z.number().int().positive(),
   z.string(),
