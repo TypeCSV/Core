@@ -40,7 +40,7 @@ Consider the following "csv file" from a hypothetical user export (formatted as 
 | Jane  | 25  | Los Angeles | 2022-04-28 |
 | Johan | 28  | Zurich      | 2022-06-03 |
 
-The schema for this csv would look like so:
+The schema for this csv might look like this:
 
 ```js
 import { z } from "zod";
