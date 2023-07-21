@@ -1,12 +1,10 @@
 # TypeCSV: Typesafe Flat File Parsing
 
-Inspired by [Prisma](https://prisma.id) and powered by [Zod](https://zod.dev/), TypeFlat empowers developers to define strongly-typed run-time schemas to which a flat file or string containing structured data must conform.
+Inspired by [Prisma](https://prisma.id) and powered by [Zod](https://zod.dev/), TypeCSV empowers developers to define strongly-typed run-time schemas to which a flat file or string containing structured data must conform.
 
 The core library is nothing magical - in fact, it's primarily a wrapper around [Zod](https://zod.dev/) & [Fast-CSV](https://github.com/C2FO/fast-csv/) that provides a consistent API for parsing csv files or strings then validating their contents against a schema.
 
-The more exciting project is to create an ecosystem of schemas for commonly-used CSV files, such as the [FDIC's Failed Bank List](https://catalog.data.gov/dataset/fdic-failed-bank-list).
-
-Making those data sources typesafe with just an `npm install` and a few lines of code will be a big developer experience win & save a lot of time.
+The larger & more exciting project is to create an ecosystem of schemas for commonly-used CSV file structures, so that developers can simply `npm install` a schema for the file they're trying to parse, and get a strongly-typed object in return.
 
 The number of potential schemas rounds to infinite, and the more of them that are out there, the more useful this project becomes. If you use this library, please add a helpful schema to the [TypeCSV Schemas Repo](https://github.com/typecsv/schemas) to help future developers.
 
