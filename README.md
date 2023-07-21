@@ -6,7 +6,7 @@ The core library is nothing magical - in fact, it's primarily a wrapper around [
 
 The larger & more exciting project is to create an ecosystem of schemas for commonly-used CSV file structures, so that developers can simply `npm install` a schema for the file they're trying to parse, and get a strongly-typed object in return.
 
-The number of potential schemas rounds to infinite, and the more of them that are out there, the more useful this project becomes. If you use this library, please add a helpful schema to the [TypeCSV Schemas Repo](https://github.com/typecsv/schemas) to help future developers.
+The number of potential schemas rounds to infinite, and the more of them that are out there, the more useful this project becomes. If you use this library, please add a new schema to the [TypeCSV Schemas Repo](https://github.com/typecsv/schemas) to help future developers.
 
 ## Installation
 
